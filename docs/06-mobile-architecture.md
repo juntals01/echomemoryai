@@ -1,3 +1,5 @@
+> Part of [FriendAI Architecture Documentation](./README.md)
+
 # FriendAI Mobile App — Implementation Spec
 
 Complete implementation specification for the Expo React Native mobile client. Covers authentication, chat, memory browsing, share ingestion, and state management.
@@ -2268,3 +2270,13 @@ npm install
 npx expo install zustand @tanstack/react-query axios expo-secure-store expo-document-picker expo-image-picker expo-file-system
 npx expo start
 ```
+
+---
+
+## Related Docs
+
+- [01 — API Architecture](./01-api-architecture.md) — Backend API endpoints the mobile client consumes
+- [02 — Backend Blueprint](./02-backend-blueprint.md) — Auth, Chat, Memories, and Ingestion API implementations
+- [03 — Memory Strategy](./03-memory-strategy.md) — How memories are displayed and user controls work
+- [04 — RAG Pipeline](./04-rag-pipeline.md) — How chat messages trigger memory extraction and retrieval
+- [05 — Ingestion Architecture](./05-ingestion-architecture.md) — Backend handling of shared content from the mobile share sheet

@@ -1,3 +1,5 @@
+> Part of [FriendAI Architecture Documentation](./README.md)
+
 # FriendAI RAG Memory Pipeline — Implementation Spec
 
 Complete implementation specification for the memory extraction, embedding, retrieval, and fact extraction pipeline.
@@ -1620,3 +1622,13 @@ AiModule (Global)
 ├── exports: AiService, EmbeddingService
 └── no imports (uses ConfigService from global ConfigModule)
 ```
+
+---
+
+## Related Docs
+
+- [01 — API Architecture](./01-api-architecture.md) — High-level system architecture and database schema
+- [02 — Backend Blueprint](./02-backend-blueprint.md) — Full module-by-module implementation code
+- [03 — Memory Strategy](./03-memory-strategy.md) — Product-level memory decisions: what to remember, scoring, decay, privacy
+- [05 — Ingestion Architecture](./05-ingestion-architecture.md) — How shared content becomes memory
+- [06 — Mobile Architecture](./06-mobile-architecture.md) — Expo client that sends messages and displays memories

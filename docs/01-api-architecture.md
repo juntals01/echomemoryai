@@ -1,3 +1,5 @@
+> Part of [FriendAI Architecture Documentation](./README.md)
+
 # FriendAI Backend API — Technical Architecture
 
 ## 1. Project Overview
@@ -1064,3 +1066,13 @@ Build order, from foundation to full feature set.
 28. **Fact conflict resolution** — Handle contradicting facts gracefully
 29. **Rate limiting and error handling** — Production-ready middleware
 30. **Monitoring** — Job queue dashboards, error tracking, performance metrics
+
+---
+
+## Related Docs
+
+- [02 — Backend Blueprint](./02-backend-blueprint.md) — Full module-by-module implementation code
+- [03 — Memory Strategy](./03-memory-strategy.md) — Product and technical strategy for the memory system
+- [04 — RAG Pipeline](./04-rag-pipeline.md) — Memory extraction, embedding, and retrieval implementation
+- [05 — Ingestion Architecture](./05-ingestion-architecture.md) — Share-to-memory pipeline for links, text, and files
+- [06 — Mobile Architecture](./06-mobile-architecture.md) — Expo React Native client implementation

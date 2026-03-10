@@ -1,3 +1,5 @@
+> Part of [FriendAI Architecture Documentation](./README.md)
+
 # FriendAI Share-Ingestion Pipeline — Implementation Spec
 
 Complete implementation specification for the mobile share-to-memory ingestion system. Allows the Expo app to send shared content (text, links, files) into the NestJS backend so FriendAI can remember it.
@@ -1787,3 +1789,13 @@ src/jobs/queues/queue.constants.ts          (core memory queues)
 |---|---|
 | `storage.service.ts` | Updated `generateUploadUrl` and `generateDownloadUrl` to accept bucket + objectKey params |
 | `app.module.ts` | Add `IngestionModule` to imports |
+
+---
+
+## Related Docs
+
+- [01 — API Architecture](./01-api-architecture.md) — MinIO storage design, bucket structure, API endpoints
+- [02 — Backend Blueprint](./02-backend-blueprint.md) — StorageService, FilesModule, and IngestionModule code
+- [03 — Memory Strategy](./03-memory-strategy.md) — How ingested content is scored, stored, and decayed
+- [04 — RAG Pipeline](./04-rag-pipeline.md) — How ingested content becomes searchable via embeddings
+- [06 — Mobile Architecture](./06-mobile-architecture.md) — Share handler and share screen implementation

@@ -1,3 +1,5 @@
+> Part of [FriendAI Architecture Documentation](./README.md)
+
 # FriendAI Memory Strategy
 
 Internal strategy document for product and engineering. Defines how memory works in FriendAI — what gets remembered, how it's scored, how it's retrieved, how it decays, and how to build it responsibly and affordably.
@@ -1170,3 +1172,13 @@ ingested_items
 - No memory editing from the app (backend only)
 
 This keeps V1 scoped to the core loop: **chat → extract → embed → retrieve → respond with context.** Everything else layers on top.
+
+---
+
+## Related Docs
+
+- [01 — API Architecture](./01-api-architecture.md) — System architecture, database schema, and processing flows
+- [02 — Backend Blueprint](./02-backend-blueprint.md) — MemoriesModule, FactsModule, PeopleModule, and RetrievalModule code
+- [04 — RAG Pipeline](./04-rag-pipeline.md) — Technical implementation of memory extraction, embedding, and retrieval
+- [05 — Ingestion Architecture](./05-ingestion-architecture.md) — How shared content becomes searchable memory
+- [06 — Mobile Architecture](./06-mobile-architecture.md) — Memories screen and user controls in the mobile client

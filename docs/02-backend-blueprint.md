@@ -1,3 +1,5 @@
+> Part of [FriendAI Architecture Documentation](./README.md)
+
 # FriendAI Backend — Implementation Blueprint
 
 Complete code generation plan for the FriendAI NestJS backend API.
@@ -4344,3 +4346,13 @@ npm run start:dev
 ```
 
 The API will be available at `http://localhost:3000/api`.
+
+---
+
+## Related Docs
+
+- [01 — API Architecture](./01-api-architecture.md) — High-level system architecture, database schema, and API endpoints
+- [03 — Memory Strategy](./03-memory-strategy.md) — What to remember, importance scoring, decay, and privacy
+- [04 — RAG Pipeline](./04-rag-pipeline.md) — Memory extraction, embedding, and retrieval implementation
+- [05 — Ingestion Architecture](./05-ingestion-architecture.md) — Share-to-memory pipeline
+- [06 — Mobile Architecture](./06-mobile-architecture.md) — Expo React Native client
