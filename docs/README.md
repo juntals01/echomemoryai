@@ -24,6 +24,7 @@ The documentation is organized into six areas: high-level architecture, backend 
 | [04 — RAG Pipeline](./04-rag-pipeline.md) | Implementation spec for memory extraction, embedding generation, semantic retrieval, and fact extraction |
 | [05 — Ingestion Architecture](./05-ingestion-architecture.md) | Share-to-memory pipeline — how links, text, PDFs, and images flow from the mobile share sheet into searchable memory |
 | [06 — Mobile Architecture](./06-mobile-architecture.md) | Expo React Native client — screens, components, state management, API integration, and share handler |
+| [Prompt Templates](../prompts/README.md) | All AI prompt templates — chat persona, memory classification, fact extraction, summarization |
 
 ---
 
@@ -68,6 +69,19 @@ The Expo React Native client provides chat, memory browsing, and content sharing
 - [Mobile Architecture](./06-mobile-architecture.md) — Screens, components, Zustand stores, React Query hooks, API client, share handler
 
 Key screens: Login, Register, Conversations, Chat, Memories, Settings, Share
+
+---
+
+## Prompt Templates
+
+All AI prompts are maintained as standalone Markdown files in the [`prompts/`](../prompts/README.md) folder, separate from application code.
+
+| Prompt | Purpose |
+|--------|---------|
+| [Chat System](../prompts/chat-system.prompt.md) | AI persona and behavioral rules for chat |
+| [Memory Classification](../prompts/memory-classification.prompt.md) | Decides if a message is worth remembering |
+| [Fact Extraction](../prompts/fact-extraction.prompt.md) | Extracts stable long-term facts from messages |
+| [Summarization](../prompts/summarization.prompt.md) | Summarizes content before embedding |
 
 ---
 

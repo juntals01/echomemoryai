@@ -1741,79 +1741,16 @@ export class EmbeddingService {
 }
 ```
 
-### `src/ai/prompts/chat-system.prompt.ts`
+### `src/ai/prompts/`
 
-```typescript
-export const CHAT_SYSTEM_PROMPT = `You are FriendAI, a warm and thoughtful AI companion.
+All prompt templates are maintained as standalone Markdown files in the [`prompts/`](../prompts/README.md) folder. The TypeScript files in `src/ai/prompts/` export string constants loaded from these templates.
 
-You remember details about the user from past conversations. Use the provided context to personalize your responses.
-
-Guidelines:
-- Be conversational, empathetic, and genuine
-- If you recall something relevant from memory, mention it naturally
-- Never fabricate memories — only reference what is in the provided context
-- Ask follow-up questions to show you care
-- Remember: you are a friend, not an assistant`;
-```
-
-### `src/ai/prompts/fact-extraction.prompt.ts`
-
-```typescript
-export const FACT_EXTRACTION_PROMPT = `Analyze the following message and extract any factual information about the user.
-
-Message:
-{{MESSAGE}}
-
-Extract facts as a JSON array. Each fact should have:
-- category: one of "preference", "goal", "relationship", "event", "emotion", "biographical", "opinion", "routine"
-- subject: what/who the fact is about
-- predicate: the relationship or attribute
-- value: the fact content
-- confidence: 0.0-1.0 how confident you are this is a real fact
-
-Only extract facts that are clearly stated or strongly implied. Return an empty array if no facts are found.
-
-Respond with ONLY a valid JSON array, no other text.`;
-```
-
-### `src/ai/prompts/summarization.prompt.ts`
-
-```typescript
-export const SUMMARIZATION_PROMPT = `Summarize the following content in 2-3 concise paragraphs. Focus on key information, main ideas, and any personally relevant details.
-
-Content:
-{{CONTENT}}
-
-Provide a clear, informative summary.`;
-```
-
-### `src/ai/prompts/memory-classification.prompt.ts`
-
-```typescript
-export const MEMORY_CLASSIFICATION_PROMPT = `Analyze this message exchange and classify what types of memorable information are present.
-
-User message:
-{{USER_MESSAGE}}
-
-Assistant response:
-{{ASSISTANT_MESSAGE}}
-
-Respond with a JSON object:
-{
-  "containsFact": boolean,
-  "containsGoal": boolean,
-  "containsPreference": boolean,
-  "containsEvent": boolean,
-  "containsRelationship": boolean,
-  "containsEmotion": boolean,
-  "isMemorable": boolean,
-  "importance": number (0.0-1.0)
-}
-
-Set isMemorable to true if ANY of the above categories are true, or if the exchange contains information worth remembering for future conversations.
-
-Respond with ONLY valid JSON, no other text.`;
-```
+| File | Prompt Template | Variable |
+|------|----------------|----------|
+| `chat-system.prompt.ts` | [`chat-system.prompt.md`](../prompts/chat-system.prompt.md) | `CHAT_SYSTEM_PROMPT` |
+| `fact-extraction.prompt.ts` | [`fact-extraction.prompt.md`](../prompts/fact-extraction.prompt.md) | `FACT_EXTRACTION_PROMPT` |
+| `summarization.prompt.ts` | [`summarization.prompt.md`](../prompts/summarization.prompt.md) | `SUMMARIZATION_PROMPT` |
+| `memory-classification.prompt.ts` | [`memory-classification.prompt.md`](../prompts/memory-classification.prompt.md) | `MEMORY_CLASSIFICATION_PROMPT` |
 
 ### `src/ai/ai.module.ts`
 
