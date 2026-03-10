@@ -1,0 +1,32 @@
+---
+description: Expo React Native mobile app conventions
+globs: mobile/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Mobile App Patterns
+
+## Routing
+
+- File-based routing via expo-router in `app/` directory
+- Layouts: `_layout.tsx` files define navigation structure
+- Tab navigation in `app/(tabs)/`
+
+## Components
+
+- Functional components only
+- Colocate styles with components
+- Reusable UI primitives in `components/ui/`
+- Use `ThemedText` and `ThemedView` for theme-aware components
+
+## API Communication
+
+- API base URL: `http://localhost:3000/api` in dev
+- Use typed API client — never raw fetch with untyped responses
+- Handle loading, error, and empty states for all data fetching
+
+## Conventions
+
+- Path alias: `@/` maps to project root
+- Strict TypeScript enabled
+- Use hooks in `hooks/` for reusable logic

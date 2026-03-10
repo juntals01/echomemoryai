@@ -1,0 +1,30 @@
+---
+description: EchoMemoryAI monorepo structure and conventions
+alwaysApply: true
+---
+
+# Project Structure
+
+- `api/` — NestJS backend (TypeORM, PostgreSQL + pgvector, BullMQ, MinIO)
+- `mobile/` — Expo React Native app (expo-router, file-based routing)
+- Root `package.json` — orchestrates both apps via `npm start`
+
+# Infrastructure
+
+- **PostgreSQL** with pgvector extension for vector embeddings
+- **Redis** for BullMQ job queues (worker processing)
+- **MinIO** for S3-compatible object storage
+- All infra runs via `docker compose up -d`
+
+# Commands
+
+- `npm start` — starts API first (port 3000), then mobile
+- `npm run docker:up` — start all Docker services
+- `npm run setup` — full project setup (install deps + docker)
+
+# Conventions
+
+- API runs on port 3000 with `/api` prefix
+- Environment config via `.env` files (never commit secrets)
+- TypeORM entities auto-loaded, synchronize enabled in dev only
+- BullMQ queues use exponential backoff retry strategy

@@ -1,0 +1,20 @@
+{
+  "name": "echomemoryai",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n api,mobile -c blue,green \"npm run start:api\" \"wait-on tcp:3000 && npm run start:mobile\"",
+    "start:api": "npm run start:dev --prefix api",
+    "start:mobile": "npm start --prefix mobile",
+    "build:api": "npm run build --prefix api",
+    "lint": "concurrently \"npm run lint --prefix api\" \"npm run lint --prefix mobile\"",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:reset": "docker compose down -v && docker compose up -d",
+    "setup": "npm install && npm install --prefix api && npm install --prefix mobile && npm run docker:up"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "wait-on": "^8.0.0"
+  }
+}

@@ -1,0 +1,44 @@
+---
+description: NestJS API conventions with TypeORM, pgvector, BullMQ
+globs: api/**/*.ts
+alwaysApply: false
+---
+
+# NestJS API Patterns
+
+## Module Structure
+
+- One module per domain feature (e.g., `memory/`, `user/`)
+- Each module contains: `*.module.ts`, `*.controller.ts`, `*.service.ts`, `*.entity.ts`
+- Register entities via `TypeOrmModule.forFeature([Entity])` in each module
+
+## TypeORM + pgvector
+
+- Vector columns: `@Column({ type: 'vector', length: 1536 })`
+- pgvector extension auto-created on app init via `AppModule.onModuleInit`
+- Similarity search: use `<->` (L2), `<=>` (cosine), `<#>` (inner product) operators
+
+```typescript
+// Cosine similarity search example
+const results = await repo.query(
+  `SELECT * FROM memory ORDER BY embedding <=> $1 LIMIT $2`,
+  [pgvector.toSql(queryVector), limit],
+);
+```
+
+## BullMQ Workers
+
+- Define queues in module: `BullModule.registerQueue({ name: 'queue-name' })`
+- Processors extend `WorkerHost` with `@Processor('queue-name')`
+- Always set `attempts` and `backoff` on jobs
+- Use `WorkerService` to enqueue jobs from controllers/services
+
+## Validation
+
+- DTOs use `class-validator` decorators
+- Global `ValidationPipe` with `whitelist: true` and `transform: true`
+
+## Config
+
+- Use `ConfigService` for all env access — never use `process.env` directly
+- Provide defaults: `config.get('KEY', 'default')`
